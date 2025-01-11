@@ -205,6 +205,53 @@ The data link layer is very similar to the network layer, except the data link l
 
 This layer includes the physical equipment involved in the data transfer, such as the cables and switches. This is also the layer where the data gets converted into a bit stream, which is a string of 1s and 0s. The physical layer of both devices must also agree on a signal convention so that the 1s can be distinguished from the 0s on both devices.
 
+---
+
+### 1. **Transport Layer**
+   - **Purpose:** 
+     - Provides end-to-end communication and ensures reliable data transfer between applications on different devices.
+   - **Unit of Data:** **Segments**
+     - Data is divided into smaller chunks (segments) with headers that include port numbers, sequence numbers, and error-checking mechanisms.
+   - **Responsibilities:**
+     - **Error detection and correction:** Ensures data is delivered without errors (e.g., using TCP).
+     - **Flow control:** Manages the rate of data transfer to prevent congestion.
+     - **Segmentation and reassembly:** Splits large messages into smaller segments and reassembles them at the destination.
+   - **Protocols:** 
+     - TCP (Transmission Control Protocol): Reliable, connection-oriented.
+     - UDP (User Datagram Protocol): Unreliable, connectionless.
+
+
+
+### 2. **Network Layer**
+   - **Purpose:** 
+     - Handles routing and forwarding of data between devices on different networks, ensuring it reaches the correct destination.
+   - **Unit of Data:** **Packets**
+     - Segments from the transport layer are encapsulated into packets, which include headers with logical addresses (e.g., IP addresses).
+   - **Responsibilities:**
+     - **Routing:** Determines the best path for data to travel from the source to the destination.
+     - **Logical addressing:** Assigns and uses IP addresses to identify devices on different networks.
+     - **Fragmentation:** Breaks large packets into smaller ones if the underlying network cannot handle large packets.
+   - **Protocols:**
+     - IPv4, IPv6, ICMP (Internet Control Message Protocol), OSPF (Open Shortest Path First).
+
+
+### 3. **Data Link Layer**
+   - **Purpose:** 
+     - Facilitates data transfer between devices on the **same network** or **local link** and ensures error-free delivery within the local network.
+   - **Unit of Data:** **Frames**
+     - Packets from the network layer are encapsulated into frames, which include headers and trailers for MAC addresses and error detection.
+   - **Responsibilities:**
+     - **Physical addressing:** Uses MAC addresses for communication between devices on the same network.
+     - **Error detection:** Identifies errors in transmitted frames using mechanisms like CRC (Cyclic Redundancy Check).
+     - **Flow control:** Regulates data flow to prevent buffer overflow.
+   - **Protocols:**
+     - Ethernet, Wi-Fi (802.11), PPP (Point-to-Point Protocol).
+
+
+
+---
+
+
 # TCP and UDP
 
 ## TCP
